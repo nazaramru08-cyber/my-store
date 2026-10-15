@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS TECH | Global Gaming Innovation</title>
+    <!-- Google Fonts & Tailwind CSS untuk tampilan modern profesional -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-cyan-500 selection:text-white">
+
+    <!-- Header / Navbar Perusahaan -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center font-extrabold text-xl text-white shadow-lg shadow-cyan-500/20">
+                    N
+                </div>
+                <span class="text-xl font-bold tracking-wider text-white">NEXUS<span class="text-cyan-400">TECH</span></span>
+            </div>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                <a href="#" class="hover:text-cyan-400 transition">Beranda</a>
+                <a href="#katalog" class="hover:text-cyan-400 transition">Katalog Produk</a>
+                <a href="#" class="hover:text-cyan-400 transition">Inovasi</a>
+                <a href="#" class="hover:text-cyan-400 transition">Dukungan</a>
+            </nav>
+            <div>
+                <a href="#katalog" class="px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-cyan-500 hover:bg-cyan-400 text-slate-950 transition shadow-lg shadow-cyan-500/20">
+                    Jelajahi Produk
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden py-24 lg:py-32 border-b border-slate-900">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-950/30 via-slate-950 to-slate-950 pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+            <span class="inline-block py-1.5 px-4 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 mb-6">
+                Masa Depan Teknologi Gaming Global
+            </span>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-tight">
+                Kuasai Permainan dengan <span class="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Performa Tanpa Batas</span>
+            </h1>
+            <p class="mt-6 text-lg md:text-xl text-slate-400 max-w-2xl mx-auto font-light">
+                Menghadirkan lini perangkat keras mutakhir: PlayStation 5, HP Gaming kelas atas, dan Laptop Gaming berperforma monster untuk para profesional.
+            </p>
+        </div>
+    </section>
+
+    <!-- Katalog Produk Section -->
+    <section id="katalog" class="py-24 max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+            <div>
+                <h2 class="text-xs font-bold tracking-widest text-cyan-400 uppercase mb-2">Katalog Eksklusif</h2>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-white">Produk Unggulan Kami</h3>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {% for item in produk %}
+            <div class="group rounded-2xl bg-slate-900/50 border border-slate-800/80 p-6 hover:border-cyan-500/50 transition duration-300 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-slate-800 text-cyan-400 border border-slate-700">{{ item.kategori }}</span>
+                        <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-cyan-500/10 text-cyan-300">{{ item.badge }}</span>
+                    </div>
+                    <h4 class="text-xl font-bold text-white group-hover:text-cyan-400 transition mb-3">{{ item.nama }}</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">{{ item.deskripsi }}</p>
+                </div>
+                <div class="flex items-center justify-between pt-4 border-t border-slate-800">
+                    <div>
+                        <span class="block text-[10px] uppercase tracking-wider text-slate-500">Harga Resmi</span>
+                        <span class="text-lg font-bold text-white">{{ item.harga_str }}</span>
+                    </div>
+                    <a href="/produk/{{ item.id }}" class="px-4 py-2 rounded-xl bg-cyan-500 text-slate-950 text-xs font-semibold hover:bg-cyan-400 transition">Detail & Pesan</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <footer class="border-t border-slate-900 bg-slate-950 py-12 text-center text-xs text-slate-500">
+        <p>&copy; 2026 Nexus Tech Corporation. All rights reserved.</p>
+    </footer>
+</body>
+</html>
