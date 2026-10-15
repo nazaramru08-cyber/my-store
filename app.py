@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-
+import { Analytics } from "@vercel/analytics/next"
 app = Flask(__name__)
 
 # Data produk unggulan perusahaan (PlayStation 5, HP Gaming, Laptop Gaming)
