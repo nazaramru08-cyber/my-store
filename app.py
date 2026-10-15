@@ -50,5 +50,14 @@ def checkout(id_produk):
     
     return render_template('sukses.html', produk=produk_terpilih, nama=nama_pembeli, alamat=alamat_pembeli)
 
+@app.route('/tentang')
+def tentang():
+    return render_template('tentang.html')
+
+# Route tambahan untuk halaman Admin
+@app.route('/admin')
+def admin():
+    return render_template('admin.html', produk=PRODUK_UTAMA)
+
 if __name__ == '__main__':
     app.run(debug=True)
